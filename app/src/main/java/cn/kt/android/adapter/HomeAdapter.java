@@ -1,6 +1,5 @@
 package cn.kt.android.adapter;
 
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -9,9 +8,7 @@ import androidx.annotation.Nullable;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.module.LoadMoreModule;
 import com.chad.library.adapter.base.viewholder.BaseViewHolder;
-
 import java.util.List;
-
 import cn.kt.android.R;
 import cn.kt.android.bean.HomeData;
 
@@ -28,7 +25,7 @@ public class HomeAdapter extends BaseQuickAdapter<HomeData, HomeAdapter.HomeList
         helper.setText(R.id.homeItemType, item.chapterName);
     }
 
-    public class HomeListViewHolder extends BaseViewHolder {
+    public static class HomeListViewHolder extends BaseViewHolder {
 
         public TextView homeItemAuthor;
         public TextView homeItemDate;

@@ -1,5 +1,6 @@
 package cn.kt.android.ui.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -14,13 +15,15 @@ import cn.kt.android.adapter.HomeAdapter
 import cn.kt.android.bean.BannerData
 import cn.kt.android.bean.HomeData
 import cn.kt.android.databinding.FragmentHomeBinding
+import cn.kt.android.ui.webview.WebViewActivity
+import cn.kt.android.util.Constants
 import cn.kt.android.util.GlideImageLoader
 import cn.kt.android.util.SpacesItemDecoration
 import cn.kt.android.util.dp
 import com.youth.banner.Banner
 import com.youth.banner.BannerConfig
 import com.youth.banner.Transformer
-import java.util.ArrayList
+import java.util.*
 
 class HomeFragment : Fragment() {
     companion object {
@@ -66,6 +69,10 @@ class HomeFragment : Fragment() {
         mAdapter = HomeAdapter(R.layout.home_list_item, homeDataList)
         mAdapter!!.addHeaderView(mBanner!!)
         binding.recyclerView.adapter = mAdapter
+
+        mAdapter?.setOnItemClickListener { _, _, position ->
+            WebViewActivity.startActivity(activity,mAdapter?.getItem(position)?.link)
+        }
 
         binding.swipeRefreshLayout.setOnRefreshListener {
             binding.swipeRefreshLayout.isRefreshing = true
