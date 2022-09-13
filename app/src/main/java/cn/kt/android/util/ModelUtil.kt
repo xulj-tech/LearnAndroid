@@ -5,7 +5,7 @@ import java.lang.reflect.Proxy
 
 
 // 被观察者接口
-open interface Observable {
+interface Observable {
     fun addObserver(observer: Observer?)
     fun deleteObserver(observer: Observer?)
     fun notifyObservers(info: String?)
@@ -49,7 +49,7 @@ class LibraryObservable : Observable {
 }
 
 // 观察者接口
-open interface Observer {
+interface Observer {
     fun update(info: String?)
 }
 
@@ -67,8 +67,6 @@ class Person {
     var age = 0               //年龄
     var height = 0.0          //身高
     var weight = 0.0          //体重
-
-    constructor() : super() {}
 
     constructor(builder: Builder) {
         name = builder.name
@@ -112,7 +110,7 @@ class Person {
 
 
 // Handler:抽象处理者，声明一个请求的处理方法
-open interface Handler {
+interface Handler {
     fun handleRequest(name: String?, days: Int)
 }
 
@@ -164,11 +162,11 @@ class MinisterHandler : Handler {
 }
 
 // --------------------------- 适配器模式 ------------------------------------------
-open interface USB {
+interface USB {
     fun isUSB()
 }
 
-open interface TypeC {
+interface TypeC {
     fun isTypeC()
 }
 
@@ -193,7 +191,7 @@ class AdapterObj(private val typeC: TypeC) : USB {
 }
 
 // -------------------------------代理模式 ------------------------------------------------
-open interface ISinger {
+interface ISinger {
     fun sing()
 }
 
@@ -500,12 +498,12 @@ fun main() {
 
     val threadPoolFactory = FactoryProducer.getFactory("cached")
     threadPoolFactory?.let {
-        val pool =  it.createThreadPool("cached") as CachedThreadPool
+        val pool = it.createThreadPool("cached") as CachedThreadPool
         pool.createThreadPool()
     }
     val executorFactory = FactoryProducer.getFactory("scheduled")
     executorFactory?.let {
-        val pool =  it.createExecute("scheduled") as ScheduledThreadExecute
+        val pool = it.createExecute("scheduled") as ScheduledThreadExecute
         pool.execute()
     }
 }

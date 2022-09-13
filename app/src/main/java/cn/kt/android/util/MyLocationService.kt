@@ -1,7 +1,6 @@
-package cn.kt.app.jetpack
+package cn.kt.android.util
 
 import androidx.lifecycle.LifecycleService
-import cn.kt.app.jetpack.MyLocationObserver
 
 class MyLocationService : LifecycleService() {
     init {

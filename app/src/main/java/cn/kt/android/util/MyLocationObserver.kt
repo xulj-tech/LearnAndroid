@@ -1,13 +1,11 @@
-package cn.kt.app.jetpack
+package cn.kt.android.util
 
 import android.Manifest
 import android.content.Context
 import androidx.lifecycle.LifecycleObserver
 import android.location.LocationManager
-import cn.kt.app.jetpack.MyLocationObserver.MyLocationListener
 import androidx.lifecycle.OnLifecycleEvent
 import androidx.lifecycle.Lifecycle
-import cn.kt.app.jetpack.MyLocationObserver
 import androidx.core.app.ActivityCompat
 import android.content.pm.PackageManager
 import android.location.Location
