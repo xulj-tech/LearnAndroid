@@ -8,3 +8,5 @@ dependencyResolutionManagement {
 }
 rootProject.name = "LearnAndroid"
 include ':app'
+include ':CommonUI'
+include ':WanAndroid'
