@@ -19,7 +19,20 @@
 
     <fragment
         android:id="@+id/nav_slideshow"
-        android:name="cn.kt.android.ui.slideshow.SlideshowFragment"
+        android:name="com.kt.android.ui.gallery.GalleryFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slide" />
+
+    <fragment
+        android:id="@+id/nav_project"
+        android:name="com.kt.android.ui.home.HomeFragment"
+        android:label="@string/title_project"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_navigation"
+        android:name="com.kt.android.ui.gallery.GalleryFragment"
+        android:label="@string/title_navigation"
+        tools:layout="@layout/fragment_home" />
+
 </navigation>

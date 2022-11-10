@@ -22,27 +22,20 @@ public class HomeAdapter extends BaseQuickAdapter<HomeData, HomeAdapter.HomeList
 
     @Override
     protected void convert(HomeListViewHolder helper, HomeData item) {
-        helper.setText(R.id.homeItemAuthor, item.author);
-        helper.setText(R.id.homeItemDate, item.niceDate);
-        helper.setText(R.id.homeItemTitle, item.title);
-        helper.setText(R.id.homeItemType, item.chapterName);
+        helper.setText(R.id.tv_date, item.niceDate);
+        helper.setText(R.id.tv_title, item.title);
     }
 
     public static class HomeListViewHolder extends BaseViewHolder {
-
-        public TextView homeItemAuthor;
-        public TextView homeItemDate;
-        public TextView homeItemTitle;
-        public TextView homeItemType;
-        public ImageView homeItemLike;
+        public TextView tv_title;
+        public TextView tv_date;
+        public ImageView img_like;
 
         public HomeListViewHolder(View view) {
             super(view);
-            homeItemAuthor=view.findViewById(R.id.homeItemAuthor);
-            homeItemDate=view.findViewById(R.id.homeItemDate);
-            homeItemTitle=view.findViewById(R.id.homeItemTitle);
-            homeItemType=view.findViewById(R.id.homeItemType);
-            homeItemLike=view.findViewById(R.id.homeItemLike);
+            tv_title = view.findViewById(R.id.tv_title);
+            tv_date = view.findViewById(R.id.tv_date);
+            img_like = view.findViewById(R.id.img_like);
         }
     }
 

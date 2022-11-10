@@ -15,20 +15,12 @@ class GalleryFragment : BaseFragment<FragmentGalleryBinding>() {
 
     private lateinit var galleryViewModel: GalleryViewModel
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        galleryViewModel =
-            ViewModelProvider(this).get(GalleryViewModel::class.java)
-        val root: View = mBind.root
-
-        val textView: TextView = mBind.textGallery
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        galleryViewModel = ViewModelProvider(this).get(GalleryViewModel::class.java)
         galleryViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
+            mBind.textGallery.text = it
         })
-        return root
     }
 
     override fun getLayoutID(): Int = R.layout.fragment_gallery

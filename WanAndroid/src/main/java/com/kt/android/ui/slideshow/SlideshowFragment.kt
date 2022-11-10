@@ -15,19 +15,12 @@ class SlideshowFragment : BaseFragment<FragmentSlideBinding>() {
 
     private lateinit var slideshowViewModel: SlideshowViewModel
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        slideshowViewModel =
-            ViewModelProvider(this).get(SlideshowViewModel::class.java)
-        val root: View = mBind.root
-        val textView: TextView = mBind.textSlideshow
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        slideshowViewModel = ViewModelProvider(this).get(SlideshowViewModel::class.java)
         slideshowViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
+            mBind.textSlideshow.text = it
         })
-        return root
     }
 
     override fun getLayoutID(): Int = R.layout.fragment_slide
